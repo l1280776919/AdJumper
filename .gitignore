@@ -1,0 +1,152 @@
+# =============================================================================
+# 1. ANDROID STUDIO & GRADLE BUILD SYSTEM
+# =============================================================================
+*.iml
+*.ipr
+*.iws
+.gradle/
+/build/
+/app/build/
+/*/build/
+/captures
+.externalNativeBuild/
+.cxx/
+/local.properties
+/.idea/
+.navigation/
+/output.json
+/output-metadata.json
+*.apk
+*.aab
+*.ap_
+*.dex
+*.aab.proguard.map
+mapping.txt
+
+# =============================================================================
+# 2. KOTLIN & JVM RUNTIME
+# =============================================================================
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+*.kotlin_module
+*.kotlin_metadata
+
+# =============================================================================
+# 3. AI / YOLO / NCNN TRAINING ARTIFACTS (绝不入库)
+# =============================================================================
+# Ultralytics / YOLOv5 / YOLOv8 训练产物
+runs/
+datasets/
+data/images/
+data/labels/
+*.pt
+*.torchscript
+*.onnx
+*.tflite
+*.mnn
+*.engine
+*.plan
+*.mlmodel
+*.mlpackage
+
+# NCNN 原始模型文件 (若需入库小模型请注释以下两行并启用 Git LFS)
+*.param
+*.bin
+
+# Python 训练环境
+venv/
+.venv/
+env/
+.env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.ipynb_checkpoints/
+wandb/
+mlruns/
+tensorboard/
+
+# =============================================================================
+# 4. SECURITY & SIGNING KEYS (安全红线)
+# =============================================================================
+*.jks
+*.keystore
+*.p12
+*.key
+*.pem
+*.crt
+*.cer
+google-services.json
+play-service-account.json
+service-account-*.json
+*.enc
+secrets.properties
+release-notes.json
+
+# =============================================================================
+# 5. OS GENERATED FILES
+# =============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================================================================
+# 6. EDITORS & IDES (NON-ANDROID-STUDIO)
+# =============================================================================
+.vscode/
+*.swp
+*~
+.project
+.settings/
+.classpath
+.factorypath
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =============================================================================
+# 7. TESTING & CI/CD
+# =============================================================================
+*.lcov
+*.exec
+test-results/
+build/reports/
+firebase-test-lab/
+robolectric/
+*.hprof
