@@ -114,6 +114,15 @@
     <string name="settings_running_title">服务运行中</string>
     <string name="settings_running_hint">自动监测开屏广告，已连续运行 2 天 6 小时</string>
     <string name="settings_running_rate">拦截率: 1.00 (100%%)</string>
+    <string name="settings_service_section">服务状态</string>
+    <string name="settings_service_running">服务运行中</string>
+    <string name="settings_service_accessibility">无障碍服务</string>
+    <string name="settings_service_foreground">前台服务</string>
+    <string name="settings_service_battery">电池优化</string>
+    <string name="settings_service_background">后台运行权限</string>
+    <string name="settings_save_mode_title">省电模式</string>
+    <string name="settings_save_mode_hint">降低检测频率以减少电量消耗</string>
+    <string name="settings_view_logs">查看运行日志</string>
     <string name="settings_notice_title">通知权限</string>
     <string name="settings_notice_hint">已开启</string>
     <string name="settings_log_mode">日志级别</string>
@@ -126,6 +135,9 @@
     <string name="settings_feedback">反馈与建议</string>
     <string name="settings_status_enabled">已开启</string>
     <string name="settings_status_disabled">未开启</string>
+    <string name="settings_status_running">运行中</string>
+    <string name="settings_status_pending">待开启</string>
+    <string name="settings_status_optimized">已关闭</string>
     <string name="settings_chevron">></string>
     <string name="privacy_dialog_title">隐私声明</string>
     <string name="privacy_dialog_message">本应用基于无障碍服务实现功能，用于辅助用户自动跳过应用启动页广告。</string>

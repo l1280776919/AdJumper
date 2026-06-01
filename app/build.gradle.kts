@@ -3,6 +3,23 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+fun secretOrProperty(name: String): String? {
+    return providers.environmentVariable(name).orNull
+        ?: providers.gradleProperty(name).orNull
+}
+
+val releaseKeystorePath = secretOrProperty("KEYSTORE_PATH")
+val releaseKeystorePassword = secretOrProperty("KEYSTORE_PASSWORD")
+val releaseKeyAlias = secretOrProperty("KEY_ALIAS")
+val releaseKeyPassword = secretOrProperty("KEY_PASSWORD")
+
+val hasReleaseSigning = listOf(
+    releaseKeystorePath,
+    releaseKeystorePassword,
+    releaseKeyAlias,
+    releaseKeyPassword
+).all { !it.isNullOrBlank() }
+
 android {
     namespace = "com.lamtap.jumper"
     compileSdk {
@@ -19,9 +36,21 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(requireNotNull(releaseKeystorePath))
+                storePassword = requireNotNull(releaseKeystorePassword)
+                keyAlias = requireNotNull(releaseKeyAlias)
+                keyPassword = requireNotNull(releaseKeyPassword)
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
