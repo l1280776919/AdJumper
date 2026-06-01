@@ -58,7 +58,7 @@ class DashboardFragment : Fragment() {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         }
         view.findViewById<MaterialButton>(R.id.permission_guide_button).setOnClickListener {
-            startActivity(Intent(Settings.ACTION_SETTINGS))
+            startActivity(Intent(requireContext(), PermissionGuideActivity::class.java))
         }
     }
 

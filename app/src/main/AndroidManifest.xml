@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Jumper">
 
         <activity
+            android:name=".ui.PermissionGuideActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.RuleTransferActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.RuleEditorActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
