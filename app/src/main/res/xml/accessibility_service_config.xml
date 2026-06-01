@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:canPerformGestures="true"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/accessibility_service_description"
+    android:htmlDescription="@string/accessibility_service_description"
+    android:notificationTimeout="80"
+    android:packageNames="com.ss.android.ugc.aweme,com.ss.android.article.news,com.tencent.news,com.qiyi.video,tv.danmaku.bili,com.tencent.qqlive,com.youku.phone,com.dragon.read,com.smile.gifmaker,com.sina.weibo"
+    android:settingsActivity=".MainActivity" />

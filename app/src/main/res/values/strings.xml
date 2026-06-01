@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">跳广告</string>
+    <string name="accessibility_service_label">Jumper 跳过服务</string>
+    <string name="accessibility_service_description">识别启动广告页中的跳过按钮并执行点击。</string>
+    <string name="main_title">跳广告</string>
+    <string name="main_subtitle">智能跳过启动广告</string>
+    <string name="main_status_enabled">无障碍服务已开启，正在为你监控启动广告。</string>
+    <string name="main_status_disabled">无障碍服务未开启，请先完成权限配置再开始运行。</string>
+    <string name="main_status_badge_enabled">服务运行中</string>
+    <string name="main_status_badge_disabled">等待开启</string>
+    <string name="main_open_settings">打开无障碍设置</string>
+    <string name="main_refresh_status">刷新状态</string>
+    <string name="main_intro">智能跳过启动页广告，让使用更高效</string>
+    <string name="main_stats_title">跳过统计</string>
+    <string name="main_stats_total">今日跳过</string>
+    <string name="main_stats_days">本周跳过</string>
+    <string name="main_stats_last_package">最近命中 App</string>
+    <string name="main_stats_empty">暂无记录</string>
+    <string name="main_status_card_title">服务状态</string>
+    <string name="main_status_card_body">调试阶段建议结合 Logcat 观察 JumperService 标签，定位事件触发、节点命中和点击耗时。</string>
+    <string name="main_whitelist_title">服务列表</string>
+    <string name="main_whitelist_body">当前只有白名单内的应用会触发识别，先把核心命中率做稳，再逐步扩大规则覆盖。</string>
+    <string name="main_rule_title">基础跳过关键词</string>
+    <string name="main_rule_body">当前使用硬编码关键词做首轮验证，后续会升级为独立规则系统。</string>
+    <string name="main_log_title">调试提示</string>
+    <string name="main_log_hint">使用 Logcat 过滤标签 JumperService，优先关注 success、click-failed、no-match 和耗时日志。</string>
+    <string name="main_count_format">%1$d 项</string>
+    <string name="dashboard_subtitle">智能跳过启动广告，让使用更高效</string>
+    <string name="dashboard_permission_guide">去设置</string>
+    <string name="dashboard_success_rate">成功率</string>
+    <string name="dashboard_success_rate_value">%1$d%%</string>
+    <string name="dashboard_recent_records">最近触发记录</string>
+    <string name="dashboard_record_hits">已成功跳过 %1$d 次</string>
+    <string name="dashboard_record_empty_subtitle">启用服务后，这里会显示最近命中的应用</string>
+    <string name="dashboard_record_status">跳过成功</string>
+    <string name="dashboard_record_time_format">%1$02d:%2$02d</string>
+    <string name="dashboard_more">更多</string>
+    <string name="dashboard_status_switch">服务状态</string>
+    <string name="dashboard_supported_hint">已覆盖常见媒体与资讯应用</string>
+    <string name="rules_title">规则列表</string>
+    <string name="rules_subtitle">按应用管理跳过规则</string>
+    <string name="rules_section_title">规则列表</string>
+    <string name="rules_tab_recommended">推荐规则</string>
+    <string name="rules_tab_builtin">内置规则</string>
+    <string name="rules_search_hint">搜索规则名（包名 / 关键词）</string>
+    <string name="rules_priority_format">优先级: %1$d</string>
+    <string name="rules_add">添加</string>
+    <string name="logs_title">日志查看器</string>
+    <string name="logs_subtitle">查看最近的跳过记录和命中情况</string>
+    <string name="logs_section_title">日志查看器</string>
+    <string name="logs_empty_hint">等待第一次成功跳过后生成记录</string>
+    <string name="logs_item_format">规则: 已拦截 %1$d 次</string>
+    <string name="logs_filter_all">全部</string>
+    <string name="logs_filter_success">成功</string>
+    <string name="logs_filter_pending">未命中</string>
+    <string name="logs_today">今天</string>
+    <string name="logs_status_success">跳过成功</string>
+    <string name="logs_status_waiting">未触发</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_subtitle">服务偏好与运行行为</string>
+    <string name="settings_section_title">通用设置</string>
+    <string name="settings_auto_start">开机自动启动</string>
+    <string name="settings_notification">前台通知栏</string>
+    <string name="settings_power_save">省电模式</string>
+    <string name="settings_running_title">服务运行中</string>
+    <string name="settings_running_hint">自动监测开屏广告，已连续运行 2 天 6 小时</string>
+    <string name="settings_running_rate">拦截率: 1.00 (100%%)</string>
+    <string name="settings_notice_title">通知权限</string>
+    <string name="settings_notice_hint">已开启</string>
+    <string name="settings_log_mode">日志级别</string>
+    <string name="settings_log_mode_hint">默认</string>
+    <string name="settings_privacy">隐私政策</string>
+    <string name="settings_agreement">用户协议</string>
+    <string name="settings_license">开源许可</string>
+    <string name="settings_check_update">检查更新</string>
+    <string name="settings_check_update_hint">当前版本: 1.0.0</string>
+    <string name="settings_feedback">反馈与建议</string>
+    <string name="settings_status_enabled">已开启</string>
+    <string name="settings_status_disabled">未开启</string>
+    <string name="settings_chevron">></string>
+    <string name="privacy_dialog_title">隐私声明</string>
+    <string name="privacy_dialog_message">本应用基于无障碍服务实现功能，用于辅助用户自动跳过应用启动页广告。</string>
+    <string name="privacy_dialog_summary">我们不会收集任何个人隐私数据，所有数据仅保存在本地设备，所以请放心使用。</string>
+    <string name="privacy_dialog_link_hint">使用前请先阅读并同意《隐私政策》和《用户协议》</string>
+    <string name="privacy_dialog_accept">同意并继续</string>
+    <string name="privacy_dialog_exit">不同意并退出</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_rules">规则</string>
+    <string name="nav_logs">日志</string>
+    <string name="nav_settings">设置</string>
+    <string-array name="supported_packages">
+        <item>com.ss.android.ugc.aweme</item>
+        <item>com.ss.android.article.news</item>
+        <item>com.tencent.news</item>
+        <item>com.qiyi.video</item>
+        <item>tv.danmaku.bili</item>
+        <item>com.tencent.qqlive</item>
+        <item>com.youku.phone</item>
+        <item>com.dragon.read</item>
+        <item>com.smile.gifmaker</item>
+        <item>com.sina.weibo</item>
+    </string-array>
+    <string-array name="default_skip_keywords">
+        <item>跳过</item>
+        <item>跳過</item>
+        <item>Skip</item>
+        <item>关闭广告</item>
+        <item>关闭</item>
+    </string-array>
+</resources>
