@@ -6,10 +6,10 @@
         <item name="colorSecondary">@color/blue_200</item>
         <item name="colorSecondaryVariant">@color/blue_100</item>
         <item name="colorOnSecondary">@color/blue_900</item>
-        <item name="android:statusBarColor">@color/surface_dark</item>
-        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:statusBarColor">#1A2B4A</item>
+        <item name="android:windowBackground">#1A2B4A</item>
         <item name="colorSurface">@color/blue_900</item>
         <item name="colorOnSurface">@color/text_on_dark</item>
-        <item name="android:navigationBarColor">@color/surface_dark</item>
+        <item name="android:navigationBarColor">#1A2B4A</item>
     </style>
 </resources>

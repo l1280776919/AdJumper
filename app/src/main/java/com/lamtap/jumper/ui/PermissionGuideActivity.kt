@@ -1,14 +1,19 @@
 package com.lamtap.jumper.ui
 
+import android.accessibilityservice.AccessibilityServiceInfo
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.accessibility.AccessibilityManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.lamtap.jumper.R
+import com.lamtap.jumper.accessibility.JumperAccessibilityService
 
 class PermissionGuideActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +65,30 @@ class PermissionGuideActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateStepStatuses()
+    }
+
+    private fun updateStepStatuses() {
+        updateStepStatus(R.id.step_service, isAccessibilityEnabled())
+        updateStepStatus(R.id.step_battery, true)
+        updateStepStatus(R.id.step_background, true)
+        updateStepStatus(R.id.step_notice, true)
+    }
+
+    private fun updateStepStatus(stepId: Int, completed: Boolean) {
+        val stepView = findViewById<View>(stepId)
+        val indexText = stepView.findViewById<TextView>(R.id.step_index)
+        if (completed) {
+            indexText.text = "✓"
+            indexText.setBackgroundResource(R.drawable.bg_status_chip_success)
+        } else {
+            indexText.text = stepView.tag?.toString() ?: "1"
+            indexText.setBackgroundResource(R.drawable.bg_step_index)
+        }
+    }
+
     private fun bindStep(
         stepId: Int,
         index: String,
@@ -69,10 +98,24 @@ class PermissionGuideActivity : AppCompatActivity() {
         onClick: () -> Unit
     ) {
         val stepView = findViewById<View>(stepId)
+        stepView.tag = index
         stepView.findViewById<TextView>(R.id.step_index).text = index
         stepView.findViewById<TextView>(R.id.step_title).setText(titleRes)
         stepView.findViewById<TextView>(R.id.step_desc).setText(descRes)
         stepView.findViewById<Button>(R.id.step_action).setText(actionRes)
         stepView.findViewById<Button>(R.id.step_action).setOnClickListener { onClick() }
+    }
+
+    private fun isAccessibilityEnabled(): Boolean {
+        val accessibilityManager =
+            getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+        val enabledServices =
+            accessibilityManager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK)
+        val expectedComponent = ComponentName(this, JumperAccessibilityService::class.java)
+        return enabledServices.any { serviceInfo ->
+            serviceInfo.resolveInfo.serviceInfo?.let { serviceInfoData ->
+                ComponentName(serviceInfoData.packageName, serviceInfoData.name) == expectedComponent
+            } ?: false
+        }
     }
 }

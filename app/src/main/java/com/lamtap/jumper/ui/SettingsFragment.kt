@@ -5,7 +5,6 @@ import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,13 +35,24 @@ class SettingsFragment : Fragment() {
         notificationSwitch = view.findViewById(R.id.switch_notification)
         powerSaveCardSwitch = view.findViewById(R.id.switch_power_save_card)
 
-        autoStartSwitch.isChecked = true
-        notificationSwitch.isChecked = true
-        powerSaveCardSwitch.isChecked = false
+        // Restore persisted state
+        val context = requireContext()
+        autoStartSwitch.isChecked = UiPreferencesStore.isAutoStart(context)
+        notificationSwitch.isChecked = UiPreferencesStore.isNotification(context)
+        powerSaveCardSwitch.isChecked = UiPreferencesStore.isPowerSave(context)
 
-        powerSaveCardSwitch.setOnCheckedChangeListener { _, _ -> renderStatuses() }
-        autoStartSwitch.setOnCheckedChangeListener { _, _ -> renderStatuses() }
-        notificationSwitch.setOnCheckedChangeListener { _, _ -> renderStatuses() }
+        autoStartSwitch.setOnCheckedChangeListener { _, isChecked ->
+            UiPreferencesStore.setAutoStart(context, isChecked)
+            renderStatuses()
+        }
+        notificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            UiPreferencesStore.setNotification(context, isChecked)
+            renderStatuses()
+        }
+        powerSaveCardSwitch.setOnCheckedChangeListener { _, isChecked ->
+            UiPreferencesStore.setPowerSave(context, isChecked)
+            renderStatuses()
+        }
 
         view.findViewById<MaterialButton>(R.id.button_view_logs).setOnClickListener {
             parentFragmentManager.beginTransaction()

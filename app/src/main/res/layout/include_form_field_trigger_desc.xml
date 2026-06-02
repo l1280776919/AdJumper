@@ -8,17 +8,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/editor_rule_name"
+        android:text="内容描述包含"
         android:textColor="@color/text_secondary"
         android:textSize="13sp" />
 
     <EditText
-        android:id="@+id/edit_rule_name"
+        android:id="@+id/edit_trigger_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_search_bar"
-        android:hint="输入规则名称"
+        android:hint="跳过,关闭广告 (逗号分隔)"
         android:inputType="text"
         android:padding="14dp"
         android:textColor="@color/text_primary"

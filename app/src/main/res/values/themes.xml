@@ -6,24 +6,24 @@
         <item name="colorSecondary">@color/blue_700</item>
         <item name="colorSecondaryVariant">@color/blue_900</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:statusBarColor">@color/blue_050</item>
-        <item name="android:windowBackground">@color/blue_050</item>
+        <item name="android:statusBarColor">@color/surface_warm</item>
+        <item name="android:windowBackground">@color/surface_warm</item>
         <item name="colorSurface">@color/surface_light</item>
         <item name="colorOnSurface">@color/text_primary</item>
-        <item name="android:navigationBarColor">@color/blue_050</item>
+        <item name="android:navigationBarColor">@color/surface_warm</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
-    <style name="JumperBottomNavigationActiveIndicator">
-        <item name="android:width">52dp</item>
+    <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">40dp</item>
         <item name="android:height">32dp</item>
-        <item name="android:color">@color/surface_purple</item>
-        <item name="shapeAppearance">@style/JumperBottomNavigationActiveIndicatorShape</item>
+        <item name="android:color">@color/blue_100</item>
+        <item name="shapeAppearance">@style/BottomNavIndicatorShape</item>
     </style>
 
-    <style name="JumperBottomNavigationActiveIndicatorShape" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <style name="BottomNavIndicatorShape" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">14dp</item>
     </style>
 </resources>

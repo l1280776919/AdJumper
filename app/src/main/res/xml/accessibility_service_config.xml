@@ -7,5 +7,4 @@
     android:description="@string/accessibility_service_description"
     android:htmlDescription="@string/accessibility_service_description"
     android:notificationTimeout="80"
-    android:packageNames="com.ss.android.ugc.aweme,com.ss.android.article.news,com.tencent.news,com.qiyi.video,tv.danmaku.bili,com.tencent.qqlive,com.youku.phone,com.dragon.read,com.smile.gifmaker,com.sina.weibo"
     android:settingsActivity=".MainActivity" />

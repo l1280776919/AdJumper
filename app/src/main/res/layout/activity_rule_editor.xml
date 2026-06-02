@@ -23,8 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:background="@drawable/bg_section_card"
+            android:elevation="3dp"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,6 +54,7 @@
                     android:textSize="15sp" />
 
                 <Switch
+                    android:id="@+id/switch_enable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
@@ -80,6 +82,7 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/priority_minus"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:background="@drawable/bg_pill"
@@ -89,6 +92,7 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/priority_value"
                     android:layout_width="48dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="8dp"
@@ -101,6 +105,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/priority_plus"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:background="@drawable/bg_pill"
@@ -116,8 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_section_card"
+            android:elevation="3dp"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,6 +135,7 @@
 
             <include layout="@layout/include_form_field_trigger_text" />
             <include layout="@layout/include_form_field_trigger_id" />
+            <include layout="@layout/include_form_field_trigger_desc" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -149,8 +156,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_section_card"
+            android:elevation="3dp"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"

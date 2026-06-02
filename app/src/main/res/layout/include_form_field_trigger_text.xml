@@ -12,13 +12,15 @@
         android:textColor="@color/text_secondary"
         android:textSize="13sp" />
 
-    <TextView
+    <EditText
+        android:id="@+id/edit_trigger_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_search_bar"
+        android:hint="跳过,关闭广告,Skip (逗号分隔)"
+        android:inputType="text"
         android:padding="14dp"
-        android:text="@string/editor_trigger_text_value"
         android:textColor="@color/text_primary"
         android:textSize="15sp" />
 </LinearLayout>

@@ -26,9 +26,21 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/top_delete"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_search_bar"
+        android:gravity="center"
+        android:text="🗑"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/top_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/editor_save"
         android:textColor="@color/tag_text"
         android:textSize="15sp"

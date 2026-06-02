@@ -1,14 +1,19 @@
 package com.lamtap.jumper
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.Insets
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -20,14 +25,16 @@ import com.lamtap.jumper.ui.SettingsFragment
 import com.lamtap.jumper.ui.UiPreferencesStore
 
 class MainActivity : AppCompatActivity() {
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { _ -> }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val contentContainer = findViewById<View>(R.id.content_container)
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        val navigationBaseMargin = resources.getDimensionPixelSize(R.dimen.bottom_nav_margin)
-        val navigationBaseHeight = resources.getDimensionPixelSize(R.dimen.bottom_nav_height)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.root_container)) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,30 +43,20 @@ class MainActivity : AppCompatActivity() {
                 contentContainer.paddingLeft,
                 systemBars.top,
                 contentContainer.paddingRight,
-                resources.getDimensionPixelSize(R.dimen.content_bottom_spacing)
+                0
             )
 
-            bottomNavigation.layoutParams = bottomNavigation.layoutParams.apply {
-                height = navigationBaseHeight + systemBars.bottom
-            }
-            (bottomNavigation.layoutParams as? android.view.ViewGroup.MarginLayoutParams)?.let { params ->
-                params.leftMargin = navigationBaseMargin
-                params.rightMargin = navigationBaseMargin
-                params.bottomMargin = navigationBaseMargin + systemBars.bottom / 2
-                bottomNavigation.layoutParams = params
-            }
             bottomNavigation.setPadding(
                 bottomNavigation.paddingLeft,
-                resources.getDimensionPixelSize(R.dimen.bottom_nav_padding_top),
+                0,
                 bottomNavigation.paddingRight,
-                resources.getDimensionPixelSize(R.dimen.bottom_nav_padding_bottom) + systemBars.bottom / 2
+                systemBars.bottom
             )
 
-            Insets.NONE.let { insets }
+            insets
         }
 
-        bottomNavigation.itemIconSize = resources.getDimensionPixelSize(R.dimen.bottom_nav_icon_size)
-        bottomNavigation.labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
+        bottomNavigation.labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_UNLABELED
         bottomNavigation.isItemHorizontalTranslationEnabled = false
 
         bottomNavigation.setOnItemSelectedListener { item ->
@@ -77,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             bottomNavigation.selectedItemId = R.id.nav_home
             maybeShowPrivacyDialog()
+            requestNotificationPermission()
         }
     }
 
@@ -84,6 +82,16 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.content_container, fragment)
             .commit()
+    }
+
+    private fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
     }
 
     private fun maybeShowPrivacyDialog() {
